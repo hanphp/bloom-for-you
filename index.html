@@ -8,8 +8,9 @@
 <title>Bloom for You</title>
 <style>
   :root { color-scheme:dark; font-family:Consolas, "Courier New", monospace; background:#080a0c; color:#d9e1e8 }
-  body { margin:0; min-height:100svh; display:grid; place-items:center }
-  main { width:min(94vw, 570px); padding:24px 0; text-align:center }
+  body { margin:0; min-height:100svh; display:flex; flex-direction:column; align-items:center }
+  main { width:min(94vw, 570px); padding:24px 0; text-align:center; margin:auto 0 }
+  footer { padding:0 0 18px; color:#aebbc8; font-size:12px; letter-spacing:.08em; text-align:center }
   h1 { margin:0 0 8px; font-size:clamp(20px, 5vw, 32px); font-weight:400; letter-spacing:.25em }
   canvas { display:block; width:100%; height:auto; aspect-ratio:540 / 460; cursor:pointer; touch-action:manipulation }
   .message { min-height:64px; padding:0 8px; display:grid; align-content:center; gap:5px }
@@ -30,5 +31,6 @@
   <button id="water">Water</button>
   <button id="reset" disabled>Reset</button>
 </main>
+<footer>@HANWAYNE</footer>
 </body>
 </html>
