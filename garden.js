@@ -4,7 +4,6 @@ const flowerName = document.querySelector("#flower");
 const note = document.querySelector("#note");
 const water = document.querySelector("#water");
 const reset = document.querySelector("#reset");
-const choices = document.querySelector("#flowers");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 const view = { x: 230, y: 128, width: 540, height: 460 };
 const lastFrame = bouquet.frames.length - 1;
@@ -20,13 +19,6 @@ function reveal(flower) {
   flowerName.textContent = flower.name;
   note.textContent = flower.note;
   draw(sparkleStarted);
-}
-
-for (const flower of new Map(bouquet.flowers.map(flower => [flower.name, flower])).values()) {
-  const button = document.createElement("button");
-  button.textContent = flower.name;
-  button.addEventListener("click", () => reveal(flower));
-  choices.append(button);
 }
 
 function draw(now) {
@@ -58,7 +50,6 @@ function draw(now) {
   }
   if (started !== null && index === lastFrame && !ready) {
     ready = true;
-    choices.hidden = false;
     note.textContent = "Tap a bloom to find a little note.";
   }
   const sparkleAge = (now - sparkleStarted) / 750;
@@ -92,7 +83,6 @@ function clearGarden() {
   selected = null;
   flowerName.textContent = "";
   note.textContent = "Water the seed to grow your bouquet.";
-  choices.hidden = true;
   water.disabled = false;
   reset.disabled = true;
   draw(performance.now());
