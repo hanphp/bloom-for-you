@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080a0c">
+<meta name="description" content="Water a seed and grow a colorful ASCII bouquet. Each flower holds a little note.">
+<title>Bloom for You</title>
+<style>
+  :root { color-scheme:dark; font-family:Consolas, "Courier New", monospace; background:#080a0c; color:#d9e1e8 }
+  body { margin:0; min-height:100svh; display:grid; place-items:center }
+  main { width:min(94vw, 570px); padding:24px 0; text-align:center }
+  h1 { margin:0 0 8px; font-size:clamp(20px, 5vw, 32px); font-weight:400; letter-spacing:.25em }
+  canvas { display:block; width:100%; height:auto; aspect-ratio:540 / 460; cursor:pointer; touch-action:manipulation }
+  .message { min-height:64px; padding:0 8px; display:grid; align-content:center; gap:5px }
+  #flower { color:#f7c3cd; font-size:17px }
+  #note { color:#aebbc8; line-height:1.45; font-size:14px }
+  button { font:inherit; color:inherit; background:#11171d; border:1px solid #52606d; border-radius:5px; padding:10px 15px; min-height:44px; cursor:pointer }
+  button:hover, button:focus-visible { border-color:#f7c3cd; color:#f7c3cd }
+  button:disabled { opacity:.45; cursor:default }
+  nav { margin:12px 0 0; display:flex; flex-wrap:wrap; gap:5px; justify-content:center }
+  nav button { font-size:12px; padding:4px 8px }
+  [hidden] { display:none }
+</style>
+<script src="bouquet.js" defer></script>
+<script src="garden.js" defer></script>
+</head>
+<body>
+<main>
+  <h1>BLOOM FOR YOU</h1>
+  <canvas id="garden" width="540" height="460" role="img" aria-label="A colorful ASCII flower garden"></canvas>
+  <div class="message" aria-live="polite"><span id="flower"></span><span id="note">Water the seed to grow your bouquet.</span></div>
+  <button id="water">Water</button>
+  <button id="reset" disabled>Reset</button>
+  <nav id="flowers" aria-label="Flower notes" hidden></nav>
+</main>
+</body>
+</html>
